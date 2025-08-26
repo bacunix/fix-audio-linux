@@ -1,11 +1,11 @@
 #!/bin/bash
 
-# Chỉ chạy một lần duy nhất
+#run this .sh file a time when open computer
 if [ -f /tmp/audio_fixed ]; then
     exit 0
 fi
 
-# Thực hiện các lệnh sửa audio
+# fixed audio command
 lspci | grep -i audio > /dev/null 2>&1
 lspci -nn | grep 8086:9d77 > /dev/null 2>&1
 
@@ -24,5 +24,5 @@ ls -la /sys/bus/pci/devices/0000:00:1f.3/driver > /dev/null 2>&1
 sudo dmesg | tail -10 > /dev/null 2>&1
 aplay -l > /dev/null 2>&1
 
-# Đánh dấu đã chạy
+# highlight this file was ran
 touch /tmp/audio_fixed
