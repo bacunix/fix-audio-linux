@@ -1,0 +1,11 @@
+[Unit]
+Description=Fix Audio Once at Boot
+After=network.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/fix-audio.sh
+RemainAfterExit=no
+
+[Install]
+WantedBy=multi-user.target
